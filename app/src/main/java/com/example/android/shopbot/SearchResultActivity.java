@@ -14,11 +14,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Product>> {
-    public static final String LOG_TAG = MainActivity.class.getName();
+public class SearchResultActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Product>> {
+    public static final String LOG_TAG = SearchResultActivity.class.getName();
 
-    private static final String REQUEST_URL =
-            "https://price-api.datayuge.com/api/v1/compare/search?api_key=Uj3KahNgL3owF7EtbGMy57926uJttmHFBU0&product=Iphone&filter=brand%3Aapple&price_start=20000&price_end=30000&page=1";
+
+    private static String REQUEST_URL = "";
+           // "https://price-api.datayuge.com/api/v1/compare/search?api_key=Uj3KahNgL3owF7EtbGMy57926uJttmHFBU0&product=Iphone&filter=brand%3Aapple&price_start=20000&price_end=30000&page=1";
 
     private ProductAdapter mAdapter;
 
@@ -31,7 +32,27 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.activity_search_result);
+
+            Bundle bundle = getIntent().getExtras();
+            String productName = bundle.getString("productName");
+            int startingPrice= bundle.getInt("startingPrice");
+            int endingPrice=bundle.getInt("endingPrice");
+
+            String productNameForUrl="";
+
+            for(int i=0;i<productName.length();i++)
+            {
+                if(productName.charAt(i)== ' ')
+                    productNameForUrl+="%20";
+                productNameForUrl+=productName.charAt(i);
+            }
+
+            REQUEST_URL +=
+                    "https://price-api.datayuge.com/api/v1/compare/search?api_key=Uj3KahNgL3owF7EtbGMy57926uJttmHFBU0&" +
+                            "product=" + productNameForUrl + "&price_start=" + startingPrice + "&price_end=" + endingPrice +"" +
+                            "&page=1";
+
             mAdapter = new ProductAdapter(this, new ArrayList<Product>());
 
             // Get a reference to the LoaderManager, in order to interact with loaders.
@@ -63,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     String productUrl= currentItem.getUrl();
 
                     // Create a new intent to open the {@link ProductActivity}
-                    Intent productIntent = new Intent(MainActivity.this, ProductActivity.class);
+                    Intent productIntent = new Intent(SearchResultActivity.this, ProductActivity.class);
                     productIntent.putExtra("productUrl", productUrl);
 
                     // Send the intent to launch a new activity

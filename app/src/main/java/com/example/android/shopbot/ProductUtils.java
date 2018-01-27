@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static com.example.android.shopbot.MainActivity.LOG_TAG;
+import static com.example.android.shopbot.SearchResultActivity.LOG_TAG;
 
 /**
  * Created by Prabhjot on 14-01-2018.

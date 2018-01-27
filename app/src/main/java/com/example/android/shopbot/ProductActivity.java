@@ -96,6 +96,7 @@ public class ProductActivity extends AppCompatActivity {
             myCustomPagerAdapter = new MyCustomPagerAdapter(ProductActivity.this, data.getImages());
             viewPager.setAdapter(myCustomPagerAdapter);
 
+
             TextView productNameTextView = (TextView) findViewById(R.id.product_name);
             String productName = data.getProductName();
             productNameTextView.setText(productName);

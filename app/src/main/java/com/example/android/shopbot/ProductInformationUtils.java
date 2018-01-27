@@ -18,7 +18,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 
-import static com.example.android.shopbot.MainActivity.LOG_TAG;
+import static com.example.android.shopbot.SearchResultActivity.LOG_TAG;
 
 /**
  * Created by Prabhjot on 17-01-2018.
@@ -122,13 +122,21 @@ public class ProductInformationUtils {
             JSONObject baseJsonResponse = new JSONObject(productJSON);
             JSONObject productData = baseJsonResponse.getJSONObject("data");
             String product_name= productData.getString("product_name");
-            JSONArray product_images= productData.getJSONArray("product_images");
+            ArrayList<String> productImages = new ArrayList<>();
 
-            ArrayList<String> productImages= new ArrayList<>();
 
-            for(int i=0;i<3;i++)
+            if(productData.has("product_images")) {
+                JSONArray product_images = productData.getJSONArray("product_images");
+                for (int i = 0; i < 3; i++) {
+                    productImages.add(product_images.getString(i));
+                }
+
+            }
+
+            else if(productData.has("product_image"))
             {
-                productImages.add(product_images.getString(i));
+                String product_image= productData.getString("product_image");
+                productImages.add(product_image);
             }
 
             productInformation = new ProductInformation(product_name, productImages) ;
