@@ -28,6 +28,10 @@ public class MyCustomPagerAdapter extends PagerAdapter{
 
     @Override
     public int getCount() {
+        if(images== null)
+            return 0;
+
+        else
         return images.size();
     }
 

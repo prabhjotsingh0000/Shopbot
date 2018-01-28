@@ -27,10 +27,25 @@
         android:paddingBottom="16dp"
         android:id="@+id/product_name"/>
 
-    <android.support.v4.view.ViewPager
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:id="@+id/viewPager"/>
+        android:layout_height="wrap_content">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <LinearLayout
+            android:id="@+id/SliderDots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/viewPager"
+            android:paddingTop="16dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal" />
+
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/stores_list"

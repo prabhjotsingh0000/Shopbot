@@ -127,7 +127,7 @@ public class ProductInformationUtils {
 
             if(productData.has("product_images")) {
                 JSONArray product_images = productData.getJSONArray("product_images");
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < product_images.length(); i++) {
                     productImages.add(product_images.getString(i));
                 }
 
