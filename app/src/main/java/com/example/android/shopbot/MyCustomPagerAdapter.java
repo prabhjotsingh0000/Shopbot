@@ -31,7 +31,7 @@ public class MyCustomPagerAdapter extends PagerAdapter{
         return images.size();
     }
 
-    
+
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == ((LinearLayout) object);
