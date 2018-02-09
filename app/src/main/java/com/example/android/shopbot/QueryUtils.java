@@ -20,10 +20,6 @@ import java.util.List;
 
 import static com.example.android.shopbot.SearchResultActivity.LOG_TAG;
 
-/**
- * Created by Komal on 1/3/2018.
- */
-
 public class QueryUtils {
 
     private QueryUtils() {

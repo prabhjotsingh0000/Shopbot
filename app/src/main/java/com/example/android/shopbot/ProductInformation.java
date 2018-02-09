@@ -3,10 +3,6 @@ package com.example.android.shopbot;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-/**
- * Created by Prabhjot on 17-01-2018.
- */
-
 public class ProductInformation {
     private String product_name;
     private ArrayList<String> images;

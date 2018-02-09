@@ -13,9 +13,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-/**
- * Created by Komal on 1/16/2018.
- */
 
 public class StoreAdapter extends ArrayAdapter<Store> {
 

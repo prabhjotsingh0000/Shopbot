@@ -1,16 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:layout_width="match_parent" >
+    android:layout_width="match_parent">
 
-    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/list"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@null"
-        android:dividerHeight="0dp"/>
+        android:layout_height="wrap_content"
+        android:columnWidth="100dp"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:layout_margin="5dp"
+        android:drawSelectorOnTop="true"
+        android:gravity="center"
+        android:focusable="true"
+        android:clickable="true"/>
 
     <!-- Empty view is only visible when the list has no items. -->
     <TextView

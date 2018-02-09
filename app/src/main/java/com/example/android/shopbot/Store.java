@@ -1,8 +1,5 @@
 package com.example.android.shopbot;
 
-/**
- * Created by Komal on 1/16/2018.
- */
 
 public class Store {
     private String name;

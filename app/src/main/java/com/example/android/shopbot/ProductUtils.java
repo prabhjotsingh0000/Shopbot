@@ -21,9 +21,6 @@ import java.util.List;
 
 import static com.example.android.shopbot.SearchResultActivity.LOG_TAG;
 
-/**
- * Created by Prabhjot on 14-01-2018.
- */
 
 public class ProductUtils {
     private ProductUtils() {

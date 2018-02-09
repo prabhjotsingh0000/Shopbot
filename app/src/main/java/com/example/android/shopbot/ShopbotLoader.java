@@ -5,9 +5,6 @@ import android.content.Context;
 
 import java.util.List;
 
-/**
- * Created by Komal on 1/2/2018.
- */
 
 public class ShopbotLoader extends AsyncTaskLoader {
     private String mUrl;

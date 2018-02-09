@@ -20,9 +20,6 @@ import java.util.ArrayList;
 
 import static com.example.android.shopbot.SearchResultActivity.LOG_TAG;
 
-/**
- * Created by Prabhjot on 17-01-2018.
- */
 
 public class ProductInformationUtils {
 

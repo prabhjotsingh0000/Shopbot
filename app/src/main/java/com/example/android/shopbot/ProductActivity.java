@@ -9,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -18,9 +17,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Komal on 1/13/2018.
- */
 
 public class ProductActivity extends AppCompatActivity {
     public static final String LOG_TAG = ProductActivity.class.getName();
@@ -101,7 +97,11 @@ public class ProductActivity extends AppCompatActivity {
             TextView productNameTextView = (TextView) findViewById(R.id.product_name);
             String productName = data.getProductName();
             productNameTextView.setText(productName);
-
+            /*
+            RatingBar ratingView = (RatingBar) findViewById(R.id.rating_bar);
+            float rating = data.getRating();
+            ratingView.setRating(rating);
+            */
 
             viewPager = (ViewPager)findViewById(R.id.viewPager);
             sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
