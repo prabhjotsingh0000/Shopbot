@@ -1,5 +1,6 @@
 package com.example.android.shopbot;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -25,6 +26,8 @@ public class ProductActivity extends AppCompatActivity {
     LinearLayout sliderDotspanel;
     private int dotscount;
     private ImageView[] dots;
+    private ProgressDialog progressDialog;
+    private TextView availableOn;
 
     ViewPager viewPager;
     MyCustomPagerAdapter myCustomPagerAdapter;
@@ -42,8 +45,12 @@ public class ProductActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String productUrl = bundle.getString("productUrl");
 
-        final String PRODUCT_REQUEST_URL = productUrl + "&api_key=Uj3KahNgL3owF7EtbGMy57926uJttmHFBU0";
+        final String PRODUCT_REQUEST_URL = productUrl + "&api_key=zFvD9oKqrwoDcbPCd1PggAwB8guLcWq8cui";
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("loading...");
+
+        availableOn= (TextView) findViewById(R.id.available_on);
 
         ProductInformationAsyncTask task_one = new ProductInformationAsyncTask();
         task_one.execute(PRODUCT_REQUEST_URL);
@@ -72,6 +79,13 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private class ProductInformationAsyncTask extends AsyncTask<String, Void, ProductInformation>{
+
+        @Override
+        protected void onPreExecute()
+        {
+            progressDialog.show();
+
+        }
 
         @Override
         protected ProductInformation doInBackground(String... urls) {
@@ -176,11 +190,16 @@ public class ProductActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Store> data) {
 
+            availableOn.setVisibility(View.VISIBLE);
+
             mAdapter.clear();
 
             if (data != null && !data.isEmpty()) {
                 mAdapter.addAll(data);
             }
+
+            if(progressDialog!= null && progressDialog.isShowing() )
+                progressDialog.dismiss();
         }
     }
 }

@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static com.example.android.shopbot.SearchResultActivity.LOG_TAG;
 
 
 public class ProductUtils {
@@ -35,7 +34,7 @@ public class ProductUtils {
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+
         }
 
         List<Store> stores = extractFeatureFromJson(jsonResponse);
@@ -170,7 +169,7 @@ public class ProductUtils {
             }
 
         } catch (JSONException e) {
-            Log.e(LOG_TAG, "Problem parsing the product JSON results", e);
+
         }
         return stores;
     }

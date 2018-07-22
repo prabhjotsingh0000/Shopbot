@@ -1,55 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:layout_height="match_parent">
 
-    <EditText
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/search_background"
+        android:id="@+id/background"
+        android:scaleType="centerCrop"
+        android:alpha="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inputs"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_centerInParent="true"
+        android:alpha="0.9"
+        android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/product_name_field_til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:background="@drawable/grid_color_selector">
+
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/product_name_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Search Product Name"
-        android:layout_marginBottom="16dp" />
+        android:textAlignment="center"
+        android:fontFamily="sans-serif"/>
 
-    <TextView
-        style="@style/HeaderTextStyle"
-        android:layout_marginBottom="16dp"
-        android:text="Price Filter" />
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/starting_price"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/starting_price_til"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:hint ="Enter Minimum Price"
-        android:textSize="16sp"
-        android:inputType="number"/>
+        android:textAlignment="center"
+        android:background="@drawable/grid_color_selector">
 
-    <EditText
-        android:id="@+id/ending_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:hint ="Enter Maximum Price"
-        android:textSize="16sp"
-        android:inputType="number"/>
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/starting_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Minimum Price (Optional)"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:fontFamily="cursive"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/ending_price_til"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:background="@drawable/grid_color_selector">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/ending_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Maximum Price (Optional)"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:fontFamily="cursive"/>
+
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/show_results"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
+        android:textSize="20sp"
         android:layout_height="wrap_content"
-        android:text="SHOW RESULTS"
-        android:layout_margin="16dp"
-        android:layout_gravity="center_horizontal"
+        android:text="Show Results"
+        android:fontFamily="casual"
+        android:textColor="@color/cardview_light_background"
+        android:background="@color/button_background"
+        android:textAllCaps="false"
+        android:layout_margin="6dp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
         />
 
-</LinearLayout>
+</RelativeLayout>

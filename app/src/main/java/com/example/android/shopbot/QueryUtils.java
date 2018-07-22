@@ -18,14 +18,13 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.android.shopbot.SearchResultActivity.LOG_TAG;
 
 public class QueryUtils {
 
     private QueryUtils() {
     }
 
-    public static List<Product> fetchProductData(String requestUrl) {
+    public static ArrayList<Product> fetchProductData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -34,10 +33,10 @@ public class QueryUtils {
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+
         }
 
-        List<Product> products = extractFeatureFromJson(jsonResponse);
+        ArrayList<Product> products = extractFeatureFromJson(jsonResponse);
         return products;
     }
 
@@ -49,7 +48,6 @@ public class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException exception) {
-            Log.e(LOG_TAG, "Error with creating URL", exception);
             return null;
         }
         return url;
@@ -75,7 +73,7 @@ public class QueryUtils {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else{
-                Log.e(LOG_TAG, "Error Response Code: " + urlConnection.getResponseCode());
+
             }
         } catch (IOException e) {
             // TODO: Handle the exception
@@ -110,13 +108,13 @@ public class QueryUtils {
     }
 
 
-    private static List<Product> extractFeatureFromJson(String productJSON) {
+    private static ArrayList<Product> extractFeatureFromJson(String productJSON) {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(productJSON)) {
             return null;
         }
         // Create an empty ArrayList that we can start adding products to
-        List<Product> products = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>();
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
@@ -140,7 +138,7 @@ public class QueryUtils {
                 products.add(product);
             }
         } catch (JSONException e) {
-            Log.e(LOG_TAG, "Problem parsing the product JSON results", e);
+
         }
         return products;
     }

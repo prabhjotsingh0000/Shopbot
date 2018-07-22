@@ -2,6 +2,7 @@ package com.example.android.shopbot;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,17 +23,17 @@ public class SearchActivity extends AppCompatActivity {
 
                 int startingPrice, endingPrice;
 
-                EditText productNameField= (EditText) findViewById(R.id.product_name_field);
+                TextInputEditText productNameField= (TextInputEditText) findViewById(R.id.product_name_field);
                 String productName= productNameField.getText().toString();
 
-                EditText startingPriceField= (EditText) findViewById(R.id.starting_price);
+                TextInputEditText startingPriceField= (TextInputEditText) findViewById(R.id.starting_price);
                 String minPrice = startingPriceField.getText().toString();
                 if(minPrice.matches(""))
                     startingPrice=-1;
                 else
                     startingPrice= Integer.parseInt(minPrice);
 
-                EditText endingPriceField= (EditText) findViewById(R.id.ending_price);
+                TextInputEditText  endingPriceField= (TextInputEditText) findViewById(R.id.ending_price);
                 String maxPrice = endingPriceField.getText().toString();
                 if(maxPrice.matches(""))
                     endingPrice=-1;

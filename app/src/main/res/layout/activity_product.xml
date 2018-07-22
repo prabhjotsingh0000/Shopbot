@@ -21,18 +21,6 @@
             android:textColor="#000000"
             android:fontFamily="sans-serif-light"
             android:id="@+id/product_name"/>
-        <!--
-        <RatingBar
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:paddingBottom="8dp"
-            android:id="@+id/rating_bar"
-            android:isIndicator="true"
-            style = "?android:attr/ratingBarStyleSmall"
-            android:layout_gravity="center_horizontal"
-            android:numStars="5"
-            android:stepSize="0.1" />
-            -->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -54,14 +42,31 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_marginBottom="5dp"
+            android:layout_margin="5dp"
+            android:elevation="3dp"
+            android:layout_marginTop="10dp"
+            card_view:cardCornerRadius="0dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/available_on"
+            android:layout_margin="10dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
             android:paddingLeft="16dp"
             android:textColor="#000000"
-            android:fontFamily="sans-serif-light"
+            android:visibility="gone"
+            android:fontFamily="sans-serif-condensed"
             android:text="Available On: "/>
+
+        </android.support.v7.widget.CardView>
 
         <ListView
             android:id="@+id/stores_list"

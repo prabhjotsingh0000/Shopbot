@@ -18,8 +18,6 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 
-import static com.example.android.shopbot.SearchResultActivity.LOG_TAG;
-
 
 public class ProductInformationUtils {
 
@@ -32,7 +30,7 @@ public class ProductInformationUtils {
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+
         }
 
         ProductInformation productInformation = extractFeatureFromJson(jsonResponse);
@@ -140,7 +138,7 @@ public class ProductInformationUtils {
 
         }
         catch (JSONException e) {
-            Log.e(LOG_TAG, "Problem parsing the product JSON results", e);
+
         }
         return productInformation;
     }
